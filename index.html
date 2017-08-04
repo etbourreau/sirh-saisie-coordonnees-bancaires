@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SGP APP</title>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+		<script src="https://code.jquery.com/jquery-1.12.3.js"></script>
+		<script src="app.js"></script>
+		
+		<style>
+			tr.collaborateur:hover{
+				cursor: pointer;
+			}
+			input[type="submit"]:focus{
+				outline: none;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div class="row" style="margin-bottom:15px;">
+			<div class="col-xs-10 col-xs-offset-1" style="font-size: 4.2vw;">
+				SGP - Saisie des coordonnées bancaires
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-5 col-md-offset-1 col-xs-10 col-xs-offset-1">
+				<table class="table table-bordered table-hover">
+					<thead>
+						<tr style="background-color: #f5f5f5;">
+							<th>Matricule</th>
+							<th>Nom</th>
+							<th>Prénom</th>
+						</tr>
+					</thead>
+					<tbody id="tableCollaborateurs">
+					</tbody>
+				</table>
+			</div>
+			<form class="form-horizontal col-md-5 col-md-offset-0 col-xs-10 col-xs-offset-1" method="get">
+				
+				<div class="form-group">
+					<label class="col-md-3 control-label" for="banque">Banque</label>
+					<div class="col-md-9">
+						<input id="banque" name="banque" type="text" value="" placeholder="Banque" class="form-control input-md" disabled/>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-md-3 control-label" for="bic">BIC</label>
+					<div class="col-md-9">
+						<input id="bic" name="bic" type="text" value="" placeholder="BIC" class="form-control input-md" disabled/>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-md-3 control-label" for="iban">IBAN</label>
+					<div class="col-md-9">
+						<input id="iban" name="iban" type="text" value="" placeholder="IBAN" class="form-control input-md" disabled/>
+					</div>
+				</div>
+				
+				<div class="col-xs-12" style="text-align: right;">
+					<input type="hidden" id="matricule" name="matricule" value=""/>
+					<input id="submit" type="submit" class="btn btn-primary" value="Sauvegarder" onclick="sendValues();"/>
+				</div>
+			</form>
+		</div>
+		<script>
+			$("input#submit").click(function(event){
+				event.preventDefault();
+			});
+		</script>
+	</body>
+</html>
